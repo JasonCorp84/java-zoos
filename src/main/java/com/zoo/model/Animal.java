@@ -15,8 +15,8 @@ public class Animal {
     // when we delete one animal we want to make sure all related fields are deleted also
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "zooanimals",
-        joinColumns = {@JoinColumn(name = "zooid")},
-        inverseJoinColumns = {@JoinColumn(name = "animalid")})
+        joinColumns = {@JoinColumn(name = "animalid")},
+        inverseJoinColumns = {@JoinColumn(name = "zooid")})
     private Set<Zoo> zoos;
 
     public Animal() {

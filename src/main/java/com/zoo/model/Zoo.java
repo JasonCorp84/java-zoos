@@ -4,6 +4,7 @@ package com.zoo.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,7 +20,7 @@ public class Zoo {
     // this has to be the same as the Zoo zoo which serves as a foreign key
     @OneToMany(mappedBy = "zoo")
     @JsonIgnoreProperties("zoo")
-    private Set<Telephone> phones;
+    private Set<Telephone> phones = new HashSet<>();
 
     // the mappedBy zoos is equal with the other side od the manytomany relationship
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "zoos")
